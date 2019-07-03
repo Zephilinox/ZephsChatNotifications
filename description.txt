@@ -1,0 +1,22 @@
+[c/ffc055:Description]
+This mod outputs notifications to the chat regarding certain events. This is intended to be used on small multiplayer servers.
+This mod has no effect in singleplayer.
+Example: [n:Zephilinox]Crafted [i/p0:121]
+
+[c/ffc055:Features]
+- Crafting one-stack items, like weapons [i/p0:55]
+- Crafting stacks of items, like bars [i/s32:57] 
+- Picking up one-stack items, like armour [i/p0:102]
+
+[c/ffc055:In The Future]
+- Looting items from world chests, like [i/p0:53]
+- Configuration (Enable/Disable the notifications you care about)
+
+[c/ffc055:Credits]
+[c/ffa400:- Zephilinox] [i/s1:2420]
+
+[c/ffc055:Changelog]
+[c/ffcc99:v0.1] Initial Release
+- Crafting one-stack items, like weapons [i/p0:55]
+- Crafting stacks of items, like bars [i/s32:57] 
+- Picking up one-stack items, like armour [i/p0:102]

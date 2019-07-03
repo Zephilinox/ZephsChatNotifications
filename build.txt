@@ -1,0 +1,3 @@
+author = Zephilinox
+version = 0.1
+displayName = Zeph's Chat Notifications
