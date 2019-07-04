@@ -42,9 +42,14 @@ namespace ZephsChatNotifications
 
         public override void OnCraft(Item item, Recipe recipe)
         {
+            //Fix single-player error message
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                return;
+            }
+
             if (item.maxStack == 1)
             {
-                //Don't need to check client vs server, only client matters here
                 ModPacket p = mod.GetPacket();
                 p.Write((byte)2);
                 p.Write((int)Main.LocalPlayer.whoAmI);

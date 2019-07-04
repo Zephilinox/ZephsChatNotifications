@@ -26,7 +26,12 @@ namespace ZephsChatNotifications
 
         public override void PostUpdate()
         {
-            base.PostUpdate();
+            //Fix single-player error message
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+                return;
+            }
+
             Player p = Main.player[Main.myPlayer];
 
             //inventory is closed, so we can't be crafting
@@ -60,11 +65,8 @@ namespace ZephsChatNotifications
                 packet.Write((int)ZephsChatNotificationsGlobalItem.lastCraftedItemStack);
                 packet.Write((int)ZephsChatNotificationsGlobalItem.lastCraftedItemType);
 
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                {
-                    //Send to server since we're the client
-                    packet.Send(-1);
-                }
+                //Send to server since we're the client
+                packet.Send(-1);
 
                 startedCrafting = false;
 

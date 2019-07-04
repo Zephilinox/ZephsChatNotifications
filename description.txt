@@ -16,7 +16,13 @@ Example: [n:Zephilinox]Crafted [i/p0:121]
 [c/ffa400:- Zephilinox] [i/s1:2420]
 
 [c/ffc055:Changelog]
-[c/ffcc99:v0.1] Initial Release
+[c/ffcc99:v0.12] Bugfix
+- Fixed error message when running the mod in singleplayer, sorry about that!
+[c/ffcc99:v0.11] Open Source
+- Mod is now open source
+- Homepage links to the github repo, please fill out an issue there
+- Added icon
+[c/ffcc99:v0.10] Initial Release
 - Crafting one-stack items, like weapons [i/p0:55]
 - Crafting stacks of items, like bars [i/s32:57] 
 - Picking up one-stack items, like armour [i/p0:102]
