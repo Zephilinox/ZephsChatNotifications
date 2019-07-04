@@ -16,6 +16,8 @@ Example: [n:Zephilinox]Crafted [i/p0:121]
 [c/ffa400:- Zephilinox] [i/s1:2420]
 
 [c/ffc055:Changelog]
+[c/ffcc99:v0.12.1] Bugfix
+- Fixed duplicate crafting message issue added in the last update
 [c/ffcc99:v0.12] Bugfix
 - Fixed error message when running the mod in singleplayer, sorry about that!
 [c/ffcc99:v0.11] Open Source

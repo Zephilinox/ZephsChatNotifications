@@ -1,4 +1,4 @@
 author = Zephilinox
-version = 0.12
+version = 0.12.1
 displayName = Zeph's Chat Notifications
 homepage = https://github.com/Zephilinox/ZephsChatNotifications

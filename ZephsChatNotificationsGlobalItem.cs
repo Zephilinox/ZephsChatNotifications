@@ -45,6 +45,9 @@ namespace ZephsChatNotifications
             //Fix single-player error message
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
+                lastCraftedItemType = -1;
+                lastCraftedItemPrefix = -1;
+                lastCraftedItemStack = -1;
                 return;
             }
 
@@ -58,11 +61,16 @@ namespace ZephsChatNotifications
 
                 //Send to server since we're the client
                 p.Send(-1);
+                lastCraftedItemType = -1;
+                lastCraftedItemPrefix = -1;
+                lastCraftedItemStack = -1;
             }
-
-            lastCraftedItemType = item.type;
-            lastCraftedItemPrefix = item.prefix;
-            lastCraftedItemStack = item.stack;
+            else
+            {
+                lastCraftedItemType = item.type;
+                lastCraftedItemPrefix = item.prefix;
+                lastCraftedItemStack = item.stack;
+            }
         }
     }
 }

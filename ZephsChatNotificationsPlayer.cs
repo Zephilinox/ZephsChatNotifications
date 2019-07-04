@@ -26,12 +26,6 @@ namespace ZephsChatNotifications
 
         public override void PostUpdate()
         {
-            //Fix single-player error message
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                return;
-            }
-
             Player p = Main.player[Main.myPlayer];
 
             //inventory is closed, so we can't be crafting
@@ -48,7 +42,6 @@ namespace ZephsChatNotifications
                 Main.mouseItem.type == ZephsChatNotificationsGlobalItem.lastCraftedItemType)
             {
                 startedCrafting = true;
-                //Main.NewText("Started crafting " + "[i/p" + ZephsChatNotificationsGlobalItem.lastCraftedItemPrefix + ":" + ZephsChatNotificationsGlobalItem.lastCraftedItemType + "]");
             }
 
             //Inventory open, crafting, mouse item changes
@@ -59,14 +52,17 @@ namespace ZephsChatNotifications
                 lastMouseItem.type != 0 && //Disregard empty mouse, since if it's empty it could mean that we've now started crafting
                 ZephsChatNotificationsGlobalItem.lastCraftedItemType >= 0) //If it's -1 for some reason then don't print anything to the chat
             {
-                ModPacket packet = mod.GetPacket();
-                packet.Write((byte)3);
-                packet.Write((int)Main.LocalPlayer.whoAmI);
-                packet.Write((int)ZephsChatNotificationsGlobalItem.lastCraftedItemStack);
-                packet.Write((int)ZephsChatNotificationsGlobalItem.lastCraftedItemType);
+                if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    ModPacket packet = mod.GetPacket();
+                    packet.Write((byte)3);
+                    packet.Write((int)Main.LocalPlayer.whoAmI);
+                    packet.Write((int)ZephsChatNotificationsGlobalItem.lastCraftedItemStack);
+                    packet.Write((int)ZephsChatNotificationsGlobalItem.lastCraftedItemType);
 
-                //Send to server since we're the client
-                packet.Send(-1);
+                    //Send to server since we're the client
+                    packet.Send(-1);
+                }
 
                 startedCrafting = false;
 
